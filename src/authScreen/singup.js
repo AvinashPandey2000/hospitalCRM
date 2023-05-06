@@ -1,10 +1,11 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-export default function PageTwo() {
+export default function Singup() {
   return (
     <View>
-      <Text>PageTwo</Text>
+      <Text>Singup</Text>
      </View>
   );
 }
+S

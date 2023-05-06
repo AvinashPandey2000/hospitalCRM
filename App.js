@@ -10,7 +10,7 @@ export default function Entery() {
 
 
   return (
-    <View>
+    <View style={{flex:1}}>
       <Hospital/>
      </View>
   );
