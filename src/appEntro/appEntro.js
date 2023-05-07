@@ -4,8 +4,27 @@ import AppIntroSlider from 'react-native-app-intro-slider';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Images from '../globalPath/images'
 import {RFValue} from 'react-native-responsive-fontsize';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+
+
+
 
 export default function AppEntro({ navigation }) {
+  const value = {
+    intro: "don",
+   
+  };
+  const IntroDon = async () => {
+      try {
+        await AsyncStorage.setItem("user",JSON.stringify(value));
+        console.log('Intro don')
+        navigation.navigate('Login')
+      } catch (error) {
+        console.log("erro",error);
+        
+      }
+    };
   const slides = [
     {
       key: 1,
@@ -68,8 +87,8 @@ export default function AppEntro({ navigation }) {
     data={slides}
     renderItem={_renderItem}
 
-    // onDone={_onDone}
-    onSkip={() => navigation.navigate('Login')}
+    onDone={IntroDon}
+    onSkip={() =>{navigation.navigate('Login') ,IntroDon()}}
     renderDoneButton={_renderDoneButton}
     renderNextButton={_renderNextButton}
   />
